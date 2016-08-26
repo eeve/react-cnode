@@ -1,0 +1,51 @@
+@import "./reset";
+html{
+	-webkit-text-size-adjust: none;
+}
+html,body {
+	font: 50px/1.5 Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
+}
+body,
+input,
+select,
+textarea {
+	color: #333;
+}
+a {
+	color: #03f;
+}
+a:hover {
+	color: #69f;
+}
+/*	j.mp/webkit-tap-highlight-color */
+a:link {
+	// -webkit-tap-highlight-color: #fcd700;
+}
+/* Mozilla dosen't style placeholders by default */
+input:-moz-placeholder {
+	color: #a9a9a9;
+}
+textarea:-moz-placeholder {
+	color: #a9a9a9;
+}
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection {
+	background: #fcd700;
+	color: #fff;
+	text-shadow: none;
+}
+::selection {
+	background: #fcd700;
+	color: #fff;
+	text-shadow: none;
+}
+input{
+	// 可以同时屏蔽输入框怪异的内阴影。
+	-webkit-appearance: none;
+}
+/* Media queries
+-------------------------------------------------------------------------------*/
+@media screen and (max-width: 480px) {}
+/* Print styles
+-------------------------------------------------------------------------------*/
+@media print {}
