@@ -1,29 +1,38 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import LazyLoad from 'react-lazyload';
+import './CnodeListCell.less';
 
 export default class CnodeListCell extends Component {
 	render() {
-		let placeholder = <img data-flex-box="0" style={{ width: 100, height: 100 }} src="http://dummyimage.com/100x100/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image" />;
-		return (
+		const post = this.props.post;
+		let imgwh = '1rem';
+		let imgStyle = { width: imgwh, height: imgwh, borderRadius: '50%' };
+		let placeholderImgSrc = `http://dummyimage.com/${imgwh}x${imgwh}/4d494d/686a82.gif&text=placeholder+image`;
+		let placeholder = <img data-flex-box="0" style={imgStyle} src={placeholderImgSrc} alt='placeholder+image' />;
 
+		return (
 			<li
-				data-flex='dir: left box: first'
-				style={{ padding: '20px 10px', borderBottom:'1px solid #eee', flex: 'row' }}
-				onClick={() => this.props.onCellClick(this.props.post.id)}>
-				<LazyLoad height={100}
-					placeholder={placeholder} >
-					<img
-						data-flex-box="0"
-						style={{ width: 100, height: 100 }}
-						src={this.props.post.author.avatar_url} />
-				</LazyLoad>
-				<div
-					data-flex-box="1"
-					style={{
-						marginLeft: 10
-					}}>
-					{this.props.post.title}
-				</div>
+				className='ui-cnode-list-cell'
+				onClick={() => this.props.onCellClick(post.id)}>
+				<Link
+					to={`/detail/${post.id}`}
+					data-flex='dir: left box: first'>
+					<LazyLoad
+						height={imgwh}
+						placeholder={placeholder}>
+						<img
+							data-flex-box='0'
+							style={imgStyle}
+							src={post.author.avatar_url}
+						/>
+					</LazyLoad>
+					<div
+						data-flex-box='1'
+						className='ui-cnode-list-cell-title'>
+						{post.title}
+					</div>
+				</Link>
 			</li>
 		)
 	}

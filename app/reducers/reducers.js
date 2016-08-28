@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import { REQUEST_POSTS, RECEIVE_POSTS, SET_TAB } from '../actions/actionCreators';
+import { REQUEST_POSTS, RECEIVE_POSTS, SET_TAB, GET_POSTING, GET_POSTED } from '../actions/actionCreators';
 
 
-
-function tab(state = 'good', action) {
+function tab(state = '', action) {
 	switch (action.type) {
 		case SET_TAB:
 			return action.tab;
@@ -36,8 +35,26 @@ function isLoading(state = true, action) {
 	}
 }
 
-const todoApp = combineReducers({
-	tab, posts, isLoading
+function post(state = { isLoading: true }, action) {
+	switch(action.type) {
+		case GET_POSTING:
+			return {
+				isLoading: true
+			}
+			break;
+		case GET_POSTED:
+			console.log(888, action);
+			return action.post;
+			break;
+		default:
+			return state;
+			break;
+	}
+}
+
+
+const cnodeJsApp = combineReducers({
+	tab, posts, isLoading, post
 });
 
-export default todoApp;
+export default cnodeJsApp;

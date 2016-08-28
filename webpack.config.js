@@ -20,7 +20,7 @@ var plugins = [
 	// }),
 ];
 
-if(!debug){
+if (!debug) {
 	plugins = plugins.concat([
 		new webpack.optimize.UglifyJsPlugin({
 			test: /(\.jsx|\.js)$/,
@@ -51,10 +51,12 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.css$/,
-			loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?' + browsers
+			loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?' +
+				browsers
 		}, {
 			test: /\.less$/,
-			loader: 'style!css?modules&importLoaders=1&localIdentName=[local]!autoprefixer?'+ browsers +'!less'
+			loader: 'style!css?modules&importLoaders=1&localIdentName=[local]!autoprefixer?' +
+				browsers + '!less'
 		}, {
 			test: /\.js?$/,
 			loaders: ['react-hot', 'babel'],
@@ -76,8 +78,8 @@ module.exports = {
 		inline: true,
 		compress: true,
 		contentBase: "./app",
-		host: '192.168.1.127',
-		port: 8090,
+		host: '192.168.1.111',
+		port: 8091,
 		setup: function(app) {
 			// Here you can access the Express app object and add your own custom middleware to it.
 			// For example, to define custom handlers for some paths:
@@ -86,10 +88,10 @@ module.exports = {
 			// });
 		},
 		// proxy: {
-    //   '/some/path*': {
-    //     target: 'https://other-server.example.com',
-    //     secure: false
-    //   }
-    // }
+		//   '/some/path*': {
+		//     target: 'https://other-server.example.com',
+		//     secure: false
+		//   }
+		// }
 	}
 };

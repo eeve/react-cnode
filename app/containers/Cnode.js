@@ -28,7 +28,7 @@ class App extends Component {
 			}}>
 				<CnodeList
 					posts={posts}
-					onCellClick={(id) => alert(id)} />
+					onCellClick={(id) => console.log(id)} />
 			</div>
 		);
 	}
@@ -37,6 +37,7 @@ class App extends Component {
 App.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
 	tab: PropTypes.oneOf([
+		'',
     'ask',
     'share',
     'job',

@@ -37,3 +37,32 @@ export function setTab(tab){
 	}
 }
 
+export const GET_POSTING = 'GET_POSTING';
+export function getPosting(isLoading) {
+	return {
+		type: GET_POSTING,
+		post: {
+			isLoading: isLoading
+		}
+	}
+}
+
+export const GET_POSTED = 'GET_POSTED';
+export function getPosted(post) {
+	return {
+		type: GET_POSTED,
+		post: {
+			...post,
+			isLoading: false
+		}
+	}
+}
+
+export function fetchPost(posts, id) {
+	return function(dispatch) {
+		dispatch(getPosting(true));
+		let _posts_ = posts.filter(post => post.id === id);
+		const post = _posts_.length === 1 ? _posts_[0] : null;
+		dispatch(getPosted(post));
+	}
+}

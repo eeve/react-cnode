@@ -1,10 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+
 import { createStore, applyMiddleware } from 'redux';
-import { connect, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import App from './containers/Cnode';
+
 import rootReducer from './reducers/reducers';
+import Routes from './routers/index';
 
 let store = createStore(
 	rootReducer,
@@ -13,9 +16,11 @@ let store = createStore(
 	)
 );
 
+let container = document.getElementById('app');
+
 render(
 	<Provider store={store}>
-		<App />
+		<Router history={browserHistory} routes={Routes}></Router>
 	</Provider>,
-	document.getElementById('app')
+	container
 );
