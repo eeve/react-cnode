@@ -5,6 +5,8 @@ import '../lib/prettify';
 import '../lib/lang-css';
 
 import DetailMain from '../components/DetailMain';
+import Comment from '../components/Comment';
+import Loading from '../components/Loading.js';
 
 import { connect } from 'react-redux';
 import { fetchPost } from '../actions/actionCreators';
@@ -12,19 +14,19 @@ import { fetchPost } from '../actions/actionCreators';
 class Detail extends Component {
 
 	componentWillMount(){
-		const { params, posts } = this.props;
-		this.props.dispatch(fetchPost(posts, params.id));
+		const { params } = this.props;
+		this.props.dispatch(fetchPost(params.id));
 	}
 
 	componentDidMount(){
-		setTimeout(() => PR.prettyPrint());
+		setTimeout(() => PR.prettyPrint(), 200);
 	}
 
 	render() {
 		const { post } = this.props;
 
 		if(post.isLoading) {
-			return <p>Loading...</p>;
+			return <Loading text='数据加载中' />;
 		}
 
 		return (
@@ -34,6 +36,8 @@ class Detail extends Component {
 				<DetailMain
 					post={post}
 				/>
+				<Comment post={post}>
+				</Comment>
 			</div>
 		);
 	}
@@ -42,7 +46,6 @@ class Detail extends Component {
 
 export default connect(state => {
 	return {
-		posts: state.posts,
 		post: state.post
 	}
 })(Detail);

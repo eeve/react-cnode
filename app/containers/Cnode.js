@@ -5,8 +5,9 @@ import '../lib/autosize';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/actionCreators';
-
+import tabs from '../constants/tabs.js';
 import CnodeList from '../components/CnodeList.js';
+import Loading from '../components/Loading.js';
 
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
 		const { dispatch, posts } = this.props;
 
 		if(this.props.isLoading) {
-			return <p>Loading...</p>;
+			return <Loading text='数据加载中' />;
 		}
 
 		return (
@@ -36,13 +37,7 @@ class App extends Component {
 
 App.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
-	tab: PropTypes.oneOf([
-		'',
-    'ask',
-    'share',
-    'job',
-    'good'
-  ]).isRequired,
+	tab: PropTypes.oneOf(Object.keys(tabs)).isRequired,
 	posts: PropTypes.arrayOf(PropTypes.shape({
 		id: PropTypes.string.isRequired,
 		content: PropTypes.string.isRequired,

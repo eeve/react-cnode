@@ -8,8 +8,8 @@ export default class CnodeListCell extends Component {
 		const post = this.props.post;
 		let imgwh = '1rem';
 		let imgStyle = { width: imgwh, height: imgwh, borderRadius: '50%' };
-		let placeholderImgSrc = `http://dummyimage.com/${imgwh}x${imgwh}/4d494d/686a82.gif&text=placeholder+image`;
-		let placeholder = <img data-flex-box="0" style={imgStyle} src={placeholderImgSrc} alt='placeholder+image' />;
+		let placeholderImgSrc = `http://dummyimage.com/100x100/4d494d/686a82.gif`;
+		let placeholder = <img data-flex-box="0" style={imgStyle} src={placeholderImgSrc} alt='logo' />;
 
 		return (
 			<li
@@ -20,6 +20,7 @@ export default class CnodeListCell extends Component {
 					data-flex='dir: left box: first'>
 					<LazyLoad
 						height={imgwh}
+						offset={500}
 						placeholder={placeholder}>
 						<img
 							data-flex-box='0'

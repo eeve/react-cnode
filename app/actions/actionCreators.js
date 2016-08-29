@@ -58,11 +58,16 @@ export function getPosted(post) {
 	}
 }
 
-export function fetchPost(posts, id) {
+export function fetchPost(id) {
 	return function(dispatch) {
 		dispatch(getPosting(true));
-		let _posts_ = posts.filter(post => post.id === id);
-		const post = _posts_.length === 1 ? _posts_[0] : null;
-		dispatch(getPosted(post));
+		fetch(`https://cnodejs.org/api/v1/topic/${id}`)
+			.then(response => response.json())
+			.then(json =>
+				dispatch(getPosted(json.data))
+			)
+		// let _posts_ = posts.filter(post => post.id === id);
+		// const post = _posts_.length === 1 ? _posts_[0] : null;
+		// dispatch(getPosted(post));
 	}
 }

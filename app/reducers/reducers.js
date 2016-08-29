@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { REQUEST_POSTS, RECEIVE_POSTS, SET_TAB, GET_POSTING, GET_POSTED } from '../actions/actionCreators';
 
 
-function tab(state = '', action) {
+function tab(state = 'all', action) {
 	switch (action.type) {
 		case SET_TAB:
 			return action.tab;

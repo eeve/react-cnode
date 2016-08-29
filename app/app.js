@@ -9,6 +9,8 @@ import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducers/reducers';
 import Routes from './routers/index';
 
+// React.initializeTouchEvents(true);
+
 let store = createStore(
 	rootReducer,
 	applyMiddleware(

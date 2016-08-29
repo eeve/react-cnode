@@ -1,63 +1,93 @@
 .ui-detail{
 	padding: 0.15rem 0.20rem;
-}
-.ui-detail-title{
-	font-size: 1.8em;
-	line-height: 1;
-	margin-bottom: 0.20rem;
-}
-.markdown-text{
-	box-sizing: border-box;
-	*:after,*:before{
+	.ui-detail-title{
+		font-size: 1.8em;
+		line-height: 1;
+		margin: 0.20rem 0;
+	}
+	.ui-detail-info{
+    color: #838383;
+    margin: 0.40rem 0;
+    padding-bottom: 0.15rem;
+    border-bottom: 1px solid #eee;
+    > span {
+    	font-size: 0.24rem;
+    	&:before {
+				content: '•'
+  	  }
+    }
+	}
+	.ui-detail-subtitle{
+		margin-left: 0.20rem;
+		font-size: 0.24rem;
+	}
+	.ui-detail-label{
+		background: #80bd01;
+		color: #fff;
+		padding: 1px 5px;
+		margin: 0 0.15rem;
+	}
+	.ui-detail-other{
+		> span {
+			margin-right: 0.15rem;
+		}
+	}
+	.markdown-text{
 		box-sizing: border-box;
+		*:after,*:before{
+			box-sizing: border-box;
+		}
+	}
+
+	.markdown-text{
+		padding: 0.15rem 0;
+
+		h1,h2,h3,h4,h5,h6{
+			margin-top: 0.15rem;
+			margin-bottom: 0.15rem;
+			border-bottom: 1px solid #eee;
+		}
+		h1 {
+			font-size: 1.5em;
+		}
+		h2 {
+			font-size: 1.3em;
+		}
+		h3 {
+			font-size: 1.2em;
+		}
+		h4 {
+			font-size: 1.0em;
+		}
+		h5 {
+			font-size: 0.8em;
+		}
+		h6 {
+			font-size: 0.6em;
+		}
+		p{
+			margin-bottom: 0.20rem;
+			line-height: 1.7;
+		}
+		ol,ul {
+			margin-left: 0.40rem;
+		}
 	}
 }
 
-.markdown-text{
-	padding: 0.15rem 0;
-
-	h1,h2,h3,h4,h5,h6{
-		margin-top: 0.15rem;
-		margin-bottom: 0.15rem;
-	}
-	h1 {
-		font-size: 1.5em;
-	}
-	h2 {
-		font-size: 1.3em;
-	}
-	h3 {
-		font-size: 1.2em;
-	}
-	h4 {
-		font-size: 1.0em;
-	}
-	h5 {
-		font-size: 0.8em;
-	}
-	h6 {
-		font-size: 0.6em;
-	}
-	p{
-		margin-bottom: 0.20rem;
-		line-height: 1.7;
-	}
-	ol,ul {
-		margin-left: 0.40rem;
-	}
-	.prettyprint{
-    width: auto;
-    overflow: scroll;
-	}
-	a {
-		word-wrap: break-word;
-	}
-	pre, code, kdb, samp {
-  	font-family: monospace, sans-serif;
-	}
-	pre.prettyprint{
-		border: none;
-		padding: 0.10rem 0.20rem;
-	}
+.prettyprint{
+  width: auto;
+  overflow: scroll;
 }
+a {
+	word-wrap: break-word;
+}
+pre, code, kdb, samp {
+	font-family: monospace, sans-serif;
+}
+pre.prettyprint{
+	border: none;
+	padding: 0.10rem 0.20rem;
+}
+
 

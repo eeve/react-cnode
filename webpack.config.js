@@ -78,7 +78,7 @@ module.exports = {
 		inline: true,
 		compress: true,
 		contentBase: "./app",
-		host: '192.168.1.111',
+		host: '192.168.1.127',
 		port: 8091,
 		setup: function(app) {
 			// Here you can access the Express app object and add your own custom middleware to it.
